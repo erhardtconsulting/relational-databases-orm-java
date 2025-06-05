@@ -1,0 +1,5 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost/transferdemo
+    username: transferdemo
+    password: transferdemo

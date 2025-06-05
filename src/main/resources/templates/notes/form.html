@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout/base :: head}">
+  <title th:text="${isEdit} ? 'Edit Note - Transfer Demo' : 'New Note - Transfer Demo'">Note Form - Transfer Demo</title>
+</head>
+<body>
+  <header th:replace="~{layout/base :: header}"></header>
+
+  <main class="container">
+    <!-- Flash messages -->
+    <div th:if="${success}" class="alert alert-success" th:text="${success}"></div>
+    <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+    
+    <div class="content">
+      <div class="page-header">
+        <h2 th:text="${isEdit} ? 'Edit Note' : 'Create New Note'">Note Form</h2>
+        <a th:href="@{/}" class="btn btn-secondary">Back to Notes</a>
+      </div>
+
+      <div class="form-container">
+        <form th:action="@{/notes}" th:object="${noteForm}" method="post" class="note-form">
+          
+          <!-- Hidden UUID field for edit mode -->
+          <input type="hidden" th:field="*{uuid}" th:if="${isEdit}">
+          
+          <div class="form-group">
+            <label for="note" class="form-label">Note Content <span class="required">*</span></label>
+            <textarea 
+              th:field="*{note}" 
+              id="note" 
+              class="form-textarea" 
+              rows="8" 
+              placeholder="Enter your note content here..."
+              required>
+            </textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn-primary">
+              <span th:text="${isEdit} ? 'Update Note' : 'Create Note'">Save Note</span>
+            </button>
+            <a th:href="@{/}" class="btn btn-secondary">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer th:replace="~{layout/base :: footer}"></footer>
+</body>
+</html>
