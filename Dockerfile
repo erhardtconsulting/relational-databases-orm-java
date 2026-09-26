@@ -1,7 +1,7 @@
 # -----------------------------
 # Stage 1: Maven Build
 # -----------------------------
-FROM docker.io/library/maven:3.9.9-eclipse-temurin-21@sha256:3a4ab3276a087bf276f79cae96b1af04f53731bec53fb2e651aca79e4b10211e AS maven-build
+FROM docker.io/library/maven:3.9.16-eclipse-temurin-21@sha256:99e61abcff91a9b1333463bd8451fb18495d6eba9250ac66a338b518f8278320 AS maven-build
 
 WORKDIR /app
 
