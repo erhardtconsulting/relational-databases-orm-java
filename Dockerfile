@@ -20,7 +20,7 @@ RUN mvn clean package -DskipTests
 # -----------------------------
 # Stage 2: Runtime
 # -----------------------------
-FROM docker.io/library/eclipse-temurin:21-jre@sha256:02df6e67e0d0ba516810a238629ae194e1d88cd6c75674bc74fc7030763ee0b6
+FROM docker.io/library/eclipse-temurin:26-jre@sha256:f9d816b4a583c1eb717ee03ac3ab26a9181f647beab2fcbc24490305529cc3f8
 
 # Install dependencies
 RUN set -eux; \
